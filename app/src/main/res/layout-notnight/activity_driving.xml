@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparentGray"
+        android:orientation="vertical"
+        android:id="@+id/drivingExtraDisplay">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/drivingExtraDisplayTime"
+                android:layout_height="match_parent"
+                android:text="@string/drivingActivity_time"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"
+                android:textSize="18sp"
+                />
+
+            <TextClock
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/drivingExtraDisplayTimeValue"
+                android:text=""
+                android:textColor="@color/red"
+                android:gravity="center_vertical"
+                android:format24Hour="HH:mm:ss     EEE, dd.MM.yyyy"
+                android:textSize="18sp"
+                android:layout_marginLeft="@dimen/activity_vertical_margin" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/activity_horizontal_margin">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/drivingExtraDisplayCurrentSpeed"
+                android:layout_height="match_parent"
+                android:text="@string/drivingActivity_currSpeed"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/drivingExtraDisplayCurrentSpeedValue"
+                android:text=""
+                android:textColor="@color/red"
+                android:gravity="center_vertical"
+                android:textSize="18sp"
+                android:layout_marginLeft="@dimen/activity_vertical_margin" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/activity_horizontal_margin">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/drivingExtraDisplayMaxSpeedAllowed"
+                android:layout_height="match_parent"
+                android:text="@string/drivingActivity_maxSpeed"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/drivingExtraDisplayMaxSpeedAllowedValue"
+                android:text=""
+                android:textColor="@color/red"
+                android:gravity="center_vertical"
+                android:textSize="18sp"
+                android:layout_marginLeft="@dimen/activity_vertical_margin" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/activity_horizontal_margin">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/drivingExtraDisplayLocation"
+                android:layout_height="match_parent"
+                android:text="@string/drivingActivity_location"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/drivingExtraDisplayLocationValue"
+                android:text=""
+                android:textColor="@color/red"
+                android:gravity="center_vertical"
+                android:textSize="18sp"
+                android:layout_marginLeft="@dimen/activity_vertical_margin" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/drivingExtraDisplay">
+
+        <TextView
+            android:text="@string/drivingActivity_keepDriving"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="76dp"
+            android:id="@+id/drivingEventToDisplay"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textSize="40sp"
+            />
+
+        <TextView
+            android:text=""
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/drivingEventToDisplay"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:id="@+id/drivingRatingToDisplay"
+            android:textSize="40sp"
+            android:textStyle="normal|bold" />
+
+
+
+        <LinearLayout
+            android:id="@+id/drivingGlobalScoreLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/goodColor"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/drivingActivity_currentScore"
+                android:layout_gravity="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                android:textAlignment="center" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="---"
+                android:textColor="@color/black"
+                android:shadowColor="#FFFFFF"
+                android:shadowDx="2.5"
+                android:shadowDy="2.3"
+                android:shadowRadius="2.6"
+                android:id="@+id/drivingGlobalScoreToDisplay"
+                android:layout_gravity="center_horizontal"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:text="@string/drivingActivity_slowDown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/drivingOverspeeding"
+            android:layout_above="@id/drivingGlobalScoreLayout"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:fontFamily="sans-serif-condensed"
+            android:textAlignment="center"
+            android:textStyle="normal|bold"
+            android:textColor="@color/black"
+            android:background="@color/mediumColor"
+            android:visibility="invisible"/>
+
+
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

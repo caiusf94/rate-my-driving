@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/bg_key"
+    >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/rsz_2carratemydrivingmedium"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:paddingRight="20dp"
+        android:id="@+id/historyItemCarIcon" />
+
+    <TextView android:id="@+id/historyItemFilename"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/historyItemCarIcon"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:text="filename"
+        android:singleLine="true"
+        android:ellipsize="end" />
+
+    <TextView android:id="@+id/historyItemTimestamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:layout_toRightOf="@id/historyItemCarIcon"
+        android:layout_below="@id/historyItemFilename"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/historyItemTimestamp"
+        android:layout_toRightOf="@id/historyItemCarIcon">
+
+    <TextView android:id="@+id/historyItemGlobalScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="@string/historyItem_score"
+        />
+
+        <TextView android:id="@+id/historyItemGlobalScoreValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/historyItemGlobalScore"
+            android:textColor="@color/black"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

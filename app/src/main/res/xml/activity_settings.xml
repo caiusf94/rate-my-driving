@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/settingsMenu_displaySettings">
+
+        <CheckBoxPreference
+            android:title="@string/settingsMenu_displayExtraPanel"
+            android:summary="@string/settingsMenu_description_extraPanel"
+            android:key="displayExtraPanel"
+            android:defaultValue="true"/>
+
+        <CheckBoxPreference
+            android:title="@string/settingsMenu_allowGps"
+            android:summary="@string/settingsMenu_description_allowGps"
+            android:key="allowGps"
+            android:defaultValue="true"/>
+
+        <CheckBoxPreference
+            android:title="@string/settingsMenu_powerSaving"
+            android:summary="@string/settingsMenu_description_powerSaving"
+            android:key="powerSaving"
+            android:defaultValue="false"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/settingsMenu_regionalSettings">
+
+    <ListPreference
+        android:title="@string/settingsMenu_language"
+        android:summary="@string/settingsMenu_description_language"
+        android:key="languageSelection"
+        android:entries="@array/languageOptions"
+        android:entryValues="@array/languageOptionValues"
+        android:negativeButtonText="@string/settingsMenu_cancel" />
+
+    <ListPreference
+        android:title="@string/settingsMenu_speedUnit"
+        android:summary="@string/settingsMenu_description_speedUnit"
+        android:key="speedUnitSelection"
+        android:defaultValue="km/h"
+        android:entries="@array/speedUnits"
+        android:entryValues="@array/speedUnits"
+        android:negativeButtonText="@string/settingsMenu_cancel" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/settingsMenu_storageSettings">
+
+        <CheckBoxPreference
+            android:title="@string/settingsMenu_saveAutomatically"
+            android:summary="@string/settingsMenu_description_saveAutomatically"
+            android:key="saveAutomatically"
+            android:defaultValue="true"/>
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

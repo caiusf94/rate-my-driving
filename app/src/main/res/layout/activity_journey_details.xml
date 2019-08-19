@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/paleGreen">
+
+    <TextView
+        android:text="@string/journeyDetails_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textColor="@color/darkGreen"
+        android:id="@+id/journeyTitle"
+        android:textStyle="normal|bold"
+        android:textAllCaps="false"
+        android:fontFamily="sans-serif-smallcaps" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/generalInfo"
+        android:orientation="vertical"
+        android:layout_below="@id/journeyTitle"
+        android:layout_marginTop="60dp"
+        android:weightSum="1">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="10">
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/generalInfoStartTimestamp"
+        android:layout_height="match_parent"
+        android:text="@string/journeyDetails_startTimestamp"
+        android:layout_alignParentStart="true"
+        android:textColor="@color/black"
+        android:gravity="center_vertical"
+        android:textSize="16sp"
+        />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/generalInfoStartTimestampValue"
+            android:text=""
+            android:textColor="@color/red"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            android:layout_marginLeft="@dimen/activity_vertical_margin" />
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/activity_vertical_margin">
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/generalInfoEndTimestamp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/journeyDetails_endTimestamp"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/generalInfoEndTimestampValue"
+                android:text=""
+                android:textColor="@color/red"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+                
+                android:layout_marginLeft="@dimen/activity_vertical_margin" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/activity_vertical_margin">
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/generalInfoDuration"
+                android:layout_height="match_parent"
+                android:text="@string/journeyDetails_duration"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/generalInfoDurationValue"
+                android:text=""
+                android:textColor="@color/red"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+
+                android:layout_marginLeft="@dimen/activity_vertical_margin" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/gpsInfo"
+        android:layout_below="@id/generalInfo"
+        android:layout_marginTop="60dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/gpsInfoStartLocation"
+                android:layout_height="match_parent"
+                android:text="@string/journeyDetails_startLocation"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/black"
+                
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/gpsInfoStartLocationValue"
+                android:text=""
+                android:textColor="@color/red"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+                
+                android:layout_marginLeft="@dimen/activity_vertical_margin" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/activity_vertical_margin">
+            <TextView
+                android:layout_width="match_parent"
+                android:id="@+id/gpsInfoEndLocation"
+                android:layout_height="match_parent"
+                android:text="@string/journeyDetails_endLocation"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/black"
+                
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/gpsInfoEndLocationValue"
+                android:text=""
+                android:textColor="@color/red"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+                
+                android:layout_marginLeft="@dimen/activity_vertical_margin" />
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/activity_vertical_margin">
+            <TextView
+                android:layout_width="match_parent"
+                android:id="@+id/gpsInfoMaxSpeed"
+                android:layout_height="match_parent"
+                android:text="@string/journeyDetails_maxSpeed"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/black"
+                
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/gpsInfoMaxSpeedValue"
+                android:text=""
+                android:textColor="@color/red"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+                
+                android:layout_marginLeft="@dimen/activity_vertical_margin" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/activity_vertical_margin">
+            <TextView
+                android:layout_width="match_parent"
+                android:id="@+id/gpsInfoAvgSpeed"
+                android:layout_height="match_parent"
+                android:text="@string/journeyDetails_avgSpeed"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/black"
+                
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/gpsInfoAvgSpeedValue"
+                android:text=""
+                android:textColor="@color/red"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+                
+                android:layout_marginLeft="@dimen/activity_vertical_margin" />
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+    <TextView
+        android:text="@string/journeyDetails_gpsInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textGpsInfo"
+        android:textSize="12sp"
+        android:textColor="@color/colorAccent"
+        android:textStyle="normal|bold"
+        android:layout_alignTop="@+id/gpsInfo"
+        android:layout_alignParentStart="true"
+        android:fontFamily="sans-serif-smallcaps" />
+
+    <TextView
+        android:text="@string/journeyDetails_generalInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textGeneralInfo"
+        android:textSize="12sp"
+        android:textColor="@color/colorAccent"
+        android:layout_marginTop="41dp"
+        android:layout_below="@+id/journeyTitle"
+        android:layout_alignParentStart="true"
+        android:textStyle="normal|bold"
+        android:fontFamily="sans-serif-smallcaps" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/journeyButtons"
+        android:layout_alignParentBottom="true">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/journeyDetails_saveJourney"
+        android:fontFamily="sans-serif-medium"
+        style="@android:style/Widget.Holo.Button"
+        android:layout_marginBottom="15dp"
+        android:layout_weight="5"
+        android:id="@+id/saveJourneyButton"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/journeyDetails_viewInsightsButton"
+            android:fontFamily="sans-serif-medium"
+            style="@android:style/Widget.Holo.Button"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="5"
+            android:id="@+id/viewInsightsButton"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gpsInfo"
+        android:layout_above="@id/journeyButtons">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerInParent="true"
+        android:weightSum="10">
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/globalScore"
+            android:layout_height="match_parent"
+            android:text="@string/journeyDetails_globalScore"
+            android:layout_alignParentStart="true"
+            android:textColor="@color/black"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/globalScoreValue"
+            android:text=""
+            android:textColor="@color/darkGreen"
+            android:gravity="center_vertical"
+            android:textSize="42sp"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:textStyle="normal|bold"
+            android:fontFamily="monospace"
+            android:textAlignment="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/globalScoreOutOf"
+            android:text="/5"
+            android:textColor="@color/black"
+            android:gravity="center_vertical"
+            android:textSize="28sp"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:textStyle="normal|bold"
+            android:fontFamily="monospace"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+    </RelativeLayout>
+
+
+</RelativeLayout>
+

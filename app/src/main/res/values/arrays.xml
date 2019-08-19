@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string-array name="languageOptions">
+        <item>@string/settingsMenu_languageRomanian</item>
+        <item>@string/settingsMenu_languageEnglish</item>
+    </string-array>
+
+    <string-array name="languageOptionValues">
+        <item>ro</item>
+        <item>en</item>
+    </string-array>
+
+    <string-array name="speedUnits">
+        <item>km/h</item>
+        <item>mph</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/paleGreen">
+
+    <TextView
+        android:text="@string/journeyInsights_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textColor="@color/darkGreen"
+        android:id="@+id/insightsTitle"
+        android:textStyle="normal|bold"
+        android:textAllCaps="false"
+        android:fontFamily="sans-serif-smallcaps" />
+
+    <TableLayout
+        android:id="@+id/statisticsTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/insightsTitle"
+        android:layout_marginTop="@dimen/activity_vertical_margin">
+
+        <TableRow android:layout_marginTop="@dimen/activity_vertical_margin">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="@string/journeyInsights_headerGood"
+                    android:layout_weight="3"
+                    android:layout_gravity="center"
+                    android:textAlignment="center"
+                    android:textColor="@color/darkGreen"
+                    android:textSize="20sp"
+                    android:textStyle="normal|bold" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="@string/journeyInsights_headereMedium"
+                    android:layout_weight="4"
+                    android:layout_gravity="center"
+                    android:textAlignment="center"
+                    android:textColor="@color/mediumColor"
+                    android:textSize="20sp"
+                    android:textStyle="normal|bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/journeyInsights_headerBad"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:textAlignment="center"
+                    android:textColor="@color/badColor"
+                    android:textSize="20sp"
+                    android:textStyle="normal|bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/journeyInsights_headerTotal"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="normal|bold" />
+
+        </TableRow>
+
+        <TableRow android:layout_marginTop="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:layout_gravity="center"
+                android:text="@string/journeyInsights_leftTurns"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="normal|bold" />
+
+            <TextView
+                android:id="@+id/insightsNbGoodLeftTurns"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text=""
+                android:layout_weight="3"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/darkGreen"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/insightsNbMediumLeftTurns"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text=""
+                android:layout_weight="4"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/mediumColor"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/insightsNbBadLeftTurns"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=""
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/badColor"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/insightsNbTotalLeftTurns"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=""
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+
+        </TableRow>
+
+        <TableRow android:layout_marginTop="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:layout_gravity="center"
+                android:text="@string/journeyInsights_rightTurns"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="normal|bold" />
+
+            <TextView
+                android:id="@+id/insightsNbGoodRightTurns"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text=""
+                android:layout_weight="3"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/darkGreen"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/insightsNbMediumRightTurns"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text=""
+                android:layout_weight="4"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/mediumColor"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/insightsNbBadRightTurns"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=""
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/badColor"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/insightsNbTotalRightTurns"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=""
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+
+        </TableRow>
+
+        <TableRow android:layout_marginTop ="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:layout_gravity="center"
+                android:text="@string/journeyInsights_accelerations"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="normal|bold" />
+
+            <TextView
+                android:id="@+id/insightsNbGoodAccelerations"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text=""
+                android:layout_weight="3"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/darkGreen"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/insightsNbMediumAccelerations"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text=""
+                android:layout_weight="4"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/mediumColor"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/insightsNbBadAccelerations"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=""
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/badColor"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/insightsNbTotalAccelerations"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=""
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginTop="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:layout_gravity="center"
+                android:text="@string/journeyInsights_Brakes"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="normal|bold" />
+
+            <TextView
+                android:id="@+id/insightsNbGoodBrakes"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text=""
+                android:layout_weight="3"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/darkGreen"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/insightsNbMediumBrakes"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text=""
+                android:layout_weight="4"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/mediumColor"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/insightsNbBadBrakes"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=""
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/badColor"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/insightsNbTotalBrakes"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=""
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+
+        </TableRow>
+
+
+    </TableLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/insightsPercentages"
+        android:orientation="vertical"
+        android:layout_below="@id/statisticsTable"
+        android:layout_marginTop="@dimen/activity_vertical_margin_bigger"
+        android:weightSum="1">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/journeyInsigtsGoodPercentage"
+                android:layout_height="match_parent"
+                android:text="@string/journeyInsights_goodPercentage"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/journeyInsigtsGoodPercentageValue"
+                android:text=""
+                android:textColor="@color/darkGreen"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+                android:layout_marginLeft="@dimen/activity_vertical_margin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="%"
+                android:textColor="@color/darkGreen"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+                android:layout_marginLeft="@dimen/activity_vertical_margin" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/activity_vertical_margin">
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/journeyInsigtsMediumPercentage"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/journeyInsights_mediumPercentage"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/journeyInsigtsMediumPercentageValue"
+                android:text=""
+                android:textColor="@color/mediumColor"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+
+                android:layout_marginLeft="@dimen/activity_vertical_margin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="%"
+                android:textColor="@color/mediumColor"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+
+                android:layout_marginLeft="@dimen/activity_vertical_margin" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/activity_vertical_margin">
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/journeyInsigtsBadPercentage"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/journeyInsights_badPercentage"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/journeyInsigtsBadPercentageValue"
+                android:text=""
+                android:textColor="@color/badColor"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+
+                android:layout_marginLeft="@dimen/activity_vertical_margin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="%"
+                android:textColor="@color/badColor"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+
+                android:layout_marginLeft="@dimen/activity_vertical_margin" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/insightsOverspeedings"
+        android:orientation="vertical"
+        android:layout_below="@id/insightsPercentages"
+        android:layout_marginTop="@dimen/activity_vertical_margin_bigger"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/journeyInsigtsOverspeedings"
+                android:layout_height="match_parent"
+                android:text="@string/journeyInsights_overspeedings"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/journeyInsightsOverspeedingsValue"
+                android:text=""
+                android:textColor="@color/red"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+                android:layout_marginLeft="@dimen/activity_vertical_margin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/journeyInsightsOverspeedingsTimes"
+                android:text="@string/journeyInsights_overspeedingTimes"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+                android:layout_marginLeft="@dimen/activity_vertical_margin" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/activity_vertical_margin">
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/journeyInsightsOverspeedingsDuration"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/journeyInsights_overspeedingDuration"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/journeyInsightsOverspeedingsDurationValue"
+                android:text=""
+                android:textColor="@color/red"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+
+                android:layout_marginLeft="@dimen/activity_vertical_margin" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</RelativeLayout>

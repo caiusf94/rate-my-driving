@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "22403599138",
+    "firebase_url": "https://rate-my-driving-a3601.firebaseio.com",
+    "project_id": "rate-my-driving-a3601",
+    "storage_bucket": "rate-my-driving-a3601.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:22403599138:android:bda3f1fa5cf3edc3",
+        "android_client_info": {
+          "package_name": "com.caiusf.ratemydriving"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "22403599138-8vc9qpl8fqpu8s5mnlk7btm9sutuhn1o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.caiusf.ratemydriving",
+            "certificate_hash": "458026cc08590a553bd8e969573de345eb2f1ed5"
+          }
+        },
+        {
+          "client_id": "22403599138-b54s31nmrqtgu2gohhjqoph621ph9njq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBypwgSc8AWLadQngZzEV2NZtRHJ1WSPJ0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "22403599138-b54s31nmrqtgu2gohhjqoph621ph9njq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

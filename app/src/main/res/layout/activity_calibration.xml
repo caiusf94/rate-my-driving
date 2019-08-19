@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <TextView
+        android:text="@string/calibration_calibrating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textCalibrating"
+        android:textSize="32sp"
+        android:textColor="@color/red"
+        android:textAlignment="center"
+        android:textStyle="normal|bold|italic" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/calibrationProgressBar"
+        />
+
+    <TextView
+        android:text="@string/calibration_dontDrive"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textInstructions"
+        android:layout_marginTop="200dp"
+        android:elevation="1dp"
+        android:textColor="@color/red"
+        android:textAlignment="center"
+        android:textSize="60sp"
+        android:textStyle="normal|bold"
+        android:textAllCaps="false"
+        android:fontFamily="sans-serif" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:text="@string/calibration_keepDeviceStill"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textDontMoveDevice"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:layout_alignParentBottom="true"
+            android:textAlignment="center"/>
+    </RelativeLayout>
+
+
+</LinearLayout>

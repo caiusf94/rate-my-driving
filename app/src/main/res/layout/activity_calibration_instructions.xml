@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/calibrationLayout"
+    android:background="@color/colorMainMenu">
+
+
+    <TextView
+        android:text="@string/calibrationInstructions_firstStep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/firstStep"
+        android:textSize="28sp"
+        android:textColor="@color/black"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="sans-serif-condensed" />
+
+    <TextView
+        android:text="@string/calibrationInstructions_secondStep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/secondStep"
+        android:textSize="28sp"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/black"
+        android:textAlignment="textEnd"
+        android:layout_marginRight="20dp"
+        android:fontFamily="sans-serif-condensed" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="@string/calibrationInstructions_tapScreen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/thirdStep"
+            android:textSize="40sp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textStyle="normal|bold|italic"
+            android:textAllCaps="false"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+
+
+</LinearLayout>

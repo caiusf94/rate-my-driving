@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/colorMainMenu">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/aboutMenu_thankYouForUsing"
+        android:textAlignment="center"
+        android:textSize="22sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/activity_vertical_margin_bigger"
+        android:text="@string/aboutMenu_firstParagraph"
+        android:textAlignment="viewStart" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/aboutMenu_secondParagraph"
+            android:textAlignment="textEnd" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/aboutMenu_thirdParagraph"
+            android:textAlignment="viewStart" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/aboutMenu_forthParagraph"
+            android:textAlignment="textEnd" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/aboutActivity_fifthParagraph"
+            android:textAlignment="viewStart" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="@string/aboutActivity_sixthParagraph"
+            android:textAlignment="textEnd" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/aboutMenu_safeJourney"
+            android:textAlignment="center"
+            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:textStyle="normal|bold" />
+
+        <View
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_width="match_parent"
+            android:layout_height="2sp"
+            android:background="@android:color/black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/aboutMenu_developer"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"
+                android:textSize="22sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Caius Florea"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"
+                android:textSize="22sp"
+                android:layout_marginLeft="@dimen/activity_vertical_margin" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/activity_horizontal_margin">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/aboutMenu_contact"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"
+                android:textSize="22sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="caiusf94@yahoo.com"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"
+                android:textSize="22sp"
+                android:layout_marginLeft="@dimen/activity_vertical_margin" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/activity_horizontal_margin">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/aboutMenu_version"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"
+                android:textSize="22sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="1.0"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"
+                android:textSize="22sp"
+                android:layout_marginLeft="@dimen/activity_vertical_margin" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/aboutMenu_credits"
+            android:textColor="@color/black"
+            android:gravity="center_vertical"
+            android:textSize="18sp"
+            />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</ScrollView>

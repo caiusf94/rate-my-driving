@@ -125,7 +125,7 @@ public class JourneyDetailsActivity extends Activity {
         viewInsightsButton = (Button) findViewById(R.id.viewInsightsButton);
 
         /**
-         * If activity is launched from HistoryActivity, hide the "Save Journey" button,
+         * If activity is launched from HistoryActivity, hide the "Save Journey" signOutButton,
          * as journey is already saved
          */
         if(isCreatedFromHistoryActivity){

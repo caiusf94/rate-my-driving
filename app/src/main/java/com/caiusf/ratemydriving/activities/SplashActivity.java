@@ -34,7 +34,7 @@ public class SplashActivity extends Activity {
             setContentView(R.layout.splash);
             new Handler().postDelayed(new Runnable() {
                 public void run() {
-                    startActivity(new Intent(SplashActivity.this, MainMenuActivity.class));
+                    startActivity(new Intent(SplashActivity.this, LoginActivity.class));
                     finish();
                 }
             }, 1500);    //display splash screen for 1.5 seconds
@@ -42,7 +42,7 @@ public class SplashActivity extends Activity {
             splashScreenDisplayed = true;    //app has been launched, don't show the splash screen upon resuming the app
         }
         else {       //if splash screen has been display, go to Main Menu
-            Intent mainMenuActivity = new Intent(SplashActivity.this, MainMenuActivity.class);
+            Intent mainMenuActivity = new Intent(SplashActivity.this, LoginActivity.class);
             mainMenuActivity.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(mainMenuActivity);
             finish();

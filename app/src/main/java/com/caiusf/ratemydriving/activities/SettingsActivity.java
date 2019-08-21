@@ -1,14 +1,22 @@
 package com.caiusf.ratemydriving.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
+import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 import com.caiusf.ratemydriving.R;
 import com.caiusf.ratemydriving.data.SettingsDO;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Locale;
 
@@ -26,23 +34,54 @@ public class SettingsActivity extends PreferenceActivity
      */
     CheckBoxPreference allowGps;
 
+    Preference signOutButton;
+
+    Preference deleteAccountButton;
+
+    FirebaseAuth firebaseAuth;
+
     /**
      * Set up the layout for this activity and observe change of preferences
      *
-     * @param savedInstanceState
-     *                      not being used
+     * @param savedInstanceState not being used
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-//        try {
-//            SettingsDO.changeAppLocale(getBaseContext(), SettingsDO.getLangCode());
-//        }
-//        catch (Exception e) {
-//        }
-
         addPreferencesFromResource(R.xml.activity_settings);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        signOutButton = findPreference("signOutSelection");
+        signOutButton.setSummary(signOutButton.getSummary().toString() + firebaseAuth.getCurrentUser().getEmail());
+        signOutButton.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                firebaseAuth.signOut();
+                Intent loginActivity = new Intent(getApplicationContext(), LoginActivity.class);
+                loginActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(loginActivity);
+                finish();
+                return true;
+            }
+        });
+
+        deleteAccountButton = findPreference("deleteAccountSelection");
+        deleteAccountButton.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                if (firebaseAuth.getCurrentUser() != null) {
+                    firebaseAuth.getCurrentUser().delete();
+                    firebaseAuth.signOut();
+                }
+                Intent loginActivity = new Intent(getApplicationContext(), LoginActivity.class);
+                loginActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(loginActivity);
+                finish();
+                return true;
+            }
+        });
+
 
         /**
          * Set the observer for change of preferences
@@ -67,12 +106,8 @@ public class SettingsActivity extends PreferenceActivity
     /**
      * called when a shared preference is changed, added, or removed
      *
-     * @param sp
-     *          the SharedPreferences that received the change
-     *
-     * @param key
-     *          the key of the preference that was changed, added, or removed
-     *
+     * @param sp  the SharedPreferences that received the change
+     * @param key the key of the preference that was changed, added, or removed
      * @see SettingsDO
      */
     @Override
@@ -108,9 +143,7 @@ public class SettingsActivity extends PreferenceActivity
     /**
      * Set new language
      *
-     * @param language
-     *              language to be set
-     *
+     * @param language language to be set
      * @see SettingsDO#changeAppLocale(Context, String)
      */
     public void setLanguage(String language) {

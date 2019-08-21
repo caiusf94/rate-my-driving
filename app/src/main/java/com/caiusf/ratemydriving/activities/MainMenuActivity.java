@@ -11,6 +11,8 @@ import android.preference.PreferenceManager;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,7 +20,6 @@ import android.widget.TextView;
 import com.caiusf.ratemydriving.R;
 import com.caiusf.ratemydriving.data.SettingsDO;
 import com.caiusf.ratemydriving.utils.toast.ToastDisplayer;
-import com.google.firebase.FirebaseApp;
 
 import java.util.List;
 import java.util.Locale;

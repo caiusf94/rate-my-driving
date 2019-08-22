@@ -1,6 +1,8 @@
 package com.caiusf.ratemydriving.activities;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -8,14 +10,10 @@ import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
+import android.widget.Button;
 
 import com.caiusf.ratemydriving.R;
 import com.caiusf.ratemydriving.data.SettingsDO;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Locale;
@@ -40,6 +38,8 @@ public class SettingsActivity extends PreferenceActivity
 
     FirebaseAuth firebaseAuth;
 
+    AlertDialog.Builder dialogBuilder;
+
     /**
      * Set up the layout for this activity and observe change of preferences
      *
@@ -49,6 +49,7 @@ public class SettingsActivity extends PreferenceActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.activity_settings);
+        dialogBuilder = new AlertDialog.Builder(SettingsActivity.this);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -57,11 +58,36 @@ public class SettingsActivity extends PreferenceActivity
         signOutButton.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                firebaseAuth.signOut();
-                Intent loginActivity = new Intent(getApplicationContext(), LoginActivity.class);
-                loginActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(loginActivity);
-                finish();
+
+
+                dialogBuilder.setTitle(getResources().getString(R.string.settingsMenu_signOutConfirmationTitle));        //ask user for confirmation
+                dialogBuilder.setMessage(getResources().getString(R.string.settingsMenu_signOutConfirmationDescription));
+                dialogBuilder.setCancelable(true);
+
+                dialogBuilder.setPositiveButton(
+                        getResources().getString(R.string.yes),
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                firebaseAuth.signOut();
+                                Intent loginActivity = new Intent(getApplicationContext(), LoginActivity.class);
+                                loginActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(loginActivity);
+                                finish();
+                                dialog.cancel();
+                            }
+                        });
+
+                dialogBuilder.setNegativeButton(
+                        getResources().getString(R.string.settingsMenu_cancel),
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+                AlertDialog alert = dialogBuilder.create();
+                alert.show();
+
                 return true;
             }
         });
@@ -70,15 +96,41 @@ public class SettingsActivity extends PreferenceActivity
         deleteAccountButton.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                if (firebaseAuth.getCurrentUser() != null) {
-                    firebaseAuth.getCurrentUser().delete();
-                    firebaseAuth.signOut();
-                }
-                Intent loginActivity = new Intent(getApplicationContext(), LoginActivity.class);
-                loginActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(loginActivity);
-                finish();
-                return true;
+
+                dialogBuilder.setTitle(getResources().getString(R.string.settingsMenu_deleteAccountConfirmationTitle));        //ask user for confirmation
+                dialogBuilder.setMessage(getResources().getString(R.string.settingsMenu_deleteAccountConfirmationDescription));
+                dialogBuilder.setCancelable(true);
+
+                dialogBuilder.setPositiveButton(
+                        getResources().getString(R.string.yes),
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+
+                                if (firebaseAuth.getCurrentUser() != null) {
+                                    firebaseAuth.getCurrentUser().delete();
+                                    firebaseAuth.signOut();
+                                }
+                                Intent loginActivity = new Intent(getApplicationContext(), LoginActivity.class);
+                                loginActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(loginActivity);
+                                finish();
+                                dialog.cancel();
+                            }
+                        });
+
+                dialogBuilder.setNegativeButton(
+                        getResources().getString(R.string.settingsMenu_cancel),
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+                AlertDialog alert = dialogBuilder.create();
+
+                alert.show();
+                return false;
+
             }
         });
 

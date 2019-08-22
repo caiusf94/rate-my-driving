@@ -3,17 +3,16 @@ package com.caiusf.ratemydriving.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.caiusf.ratemydriving.R;
+import com.caiusf.ratemydriving.utils.toast.ToastDisplayer;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -33,7 +32,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     EditText loginEmail, loginPassword;
     Button loginButton, registerButton, newPassButton;
     private static final int RC_SIGN_IN = 9001;
-    private SignInButton signInButton;
+    private SignInButton googleSignInButton;
     FirebaseAuth firebaseAuth;
     GoogleApiClient mGoogleApiClient;
 
@@ -44,12 +43,12 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
 
 
-        loginEmail = (EditText) findViewById(R.id.girisEmail);
-        loginPassword = (EditText) findViewById(R.id.girisParola);
-        loginButton = (Button) findViewById(R.id.girisButton);
-        registerButton = (Button) findViewById(R.id.uyeOlButton);
-        signInButton = (SignInButton) findViewById(R.id.sign_in_button);
-        newPassButton = (Button) findViewById(R.id.yeniSifreButton);
+        loginEmail = (EditText) findViewById(R.id.login_emailField);
+        loginPassword = (EditText) findViewById(R.id.login_passwordField);
+        loginButton = (Button) findViewById(R.id.login_loginButton);
+        registerButton = (Button) findViewById(R.id.login_registerButton);
+        googleSignInButton = (SignInButton) findViewById(R.id.login_googleSignInButton);
+        newPassButton = (Button) findViewById(R.id.login_forgotPasswordButton);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -67,16 +66,13 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 String email = loginEmail.getText().toString();
                 String password = loginPassword.getText().toString();
 
-                if (TextUtils.isEmpty(email)) {
-                    Toast.makeText(getApplicationContext(), "Please fill in the required fields", Toast.LENGTH_SHORT).show();
+                if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
+                    ToastDisplayer.displayShortToast(getApplicationContext(), getResources().getString(R.string.loginActivity_pleaseFillInFields));
                     return;
-                }
-                if (TextUtils.isEmpty(password)) {
-                    Toast.makeText(getApplicationContext(), "Please fill in the required fields", Toast.LENGTH_SHORT).show();
                 }
 
                 if (password.length() < 6) {
-                    Toast.makeText(getApplicationContext(), "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
+                    ToastDisplayer.displayShortToast(getApplicationContext(), getResources().getString(R.string.loginActivity_passowrdLength));
                 }
 
                 firebaseAuth.createUserWithEmailAndPassword(email, password)
@@ -87,7 +83,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                                     startActivity(new Intent(getApplicationContext(), MainMenuActivity.class));
                                     finish();
                                 } else {
-                                    Toast.makeText(getApplicationContext(), "E-mail or password is wrong", Toast.LENGTH_SHORT).show();
+                                    ToastDisplayer.displayShortToast(getApplicationContext(), getResources().getString(R.string.loginActivity_wrongMailOrPass));
                                 }
                             }
                         });
@@ -100,16 +96,13 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 String email = loginEmail.getText().toString();
                 String password = loginPassword.getText().toString();
 
-                if (TextUtils.isEmpty(email)) {
-                    Toast.makeText(getApplicationContext(), "Please fill in the required fields", Toast.LENGTH_SHORT).show();
+                if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
+                    ToastDisplayer.displayShortToast(getApplicationContext(), getResources().getString(R.string.loginActivity_pleaseFillInFields));
                     return;
-                }
-                if (TextUtils.isEmpty(password)) {
-                    Toast.makeText(getApplicationContext(), "Please fill in the required fields", Toast.LENGTH_SHORT).show();
                 }
 
                 if (password.length() < 6) {
-                    Toast.makeText(getApplicationContext(), "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
+                    ToastDisplayer.displayShortToast(getApplicationContext(), getResources().getString(R.string.loginActivity_passowrdLength));
                 }
 
 
@@ -121,13 +114,21 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                                     startActivity(new Intent(getApplicationContext(), MainMenuActivity.class));
                                     finish();
                                 } else {
-                                    Toast.makeText(getApplicationContext(), "E-mail or password is wrong", Toast.LENGTH_SHORT).show();
+                                    ToastDisplayer.displayShortToast(getApplicationContext(), getResources().getString(R.string.loginActivity_wrongMailOrPass));
                                 }
 
                                 // ...
                             }
                         });
 
+            }
+        });
+
+        newPassButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, NewPasswordActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -142,7 +143,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
-        signInButton.setOnClickListener(new View.OnClickListener() {
+        googleSignInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 signIn();
@@ -177,7 +178,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                     startActivity(new Intent(getApplicationContext(), MainMenuActivity.class));
                     finish();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Auth Error", Toast.LENGTH_SHORT).show();
+                    ToastDisplayer.displayShortToast(getApplicationContext(), getResources().getString(R.string.loginActivity_googleAuthError));
                 }
             }
         });

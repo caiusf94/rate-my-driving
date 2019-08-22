@@ -15,6 +15,15 @@
     <string name="settingsMenu_powerSaving">Power saving</string>
     <string name="settingsMenu_regionalSettings">Regional settings</string>
     <string name="settingsMenu_speedUnit">Speed unit</string>
+    <string name="settingsMenu_accountSettings">Account settings</string>
+    <string name="settingsMenu_signOut">Sign out</string>
+    <string name="settingsMenu_signOutDescription">Currently signed in as\u0020</string>
+    <string name="settingsMenu_signOutConfirmationTitle">Sign out</string>
+    <string name="settingsMenu_signOutConfirmationDescription">Are you sure you want to sign out?</string>
+    <string name="settingsMenu_deleteAccount">Delete account</string>
+    <string name="settingsMenu_deleteAccountDescription">Permanently delete this account</string>
+    <string name="settingsMenu_deleteAccountConfirmationTitle">Delete account</string>
+    <string name="settingsMenu_deleteAccountConfirmationDescription">Are you sure you want to permanently delete your account? This action cannot be reversed!</string>
     <string name="driving_turnOnGps">Please enable your location. Press back to cancel.</string>
     <string name="calibrationInstructions_firstStep">Attach your device in a fixed position</string>
     <string name="calibrationInstructions_secondStep">Make sure your vehicle is not moving</string>
@@ -118,4 +127,18 @@
     <string name="aboutMenu_version">Version:</string>
     <string name="aboutMenu_credits">Many thanks to freeiconspng.com, icons8.com and clipartsuggest.com for the icons used within Rate My Driving.</string>
     <string name="drivingActivity_powerSaveOn">Power saving mode enabled</string>
+    <string name="loginActivity_emailText">E-mail</string>
+    <string name="loginActivity_passwordText">Password</string>
+    <string name="loginActivity_loginButton">Login</string>
+    <string name="loginActivity_registerButton">Create new account</string>
+    <string name="login_forgotPassword">Forgot your password? Tap here!</string>
+    <string name="login_or">or</string>
+    <string name="loginActivity_pleaseFillInFields">Please fill in the required fields</string>
+    <string name="loginActivity_passowrdLength">Password must be at least 6 characters long</string>
+    <string name="loginActivity_wrongMailOrPass">Wrong e-mail or password</string>
+    <string name="loginActivity_googleAuthError">Authentication error</string>
+    <string name="resetPassword_requestNewPassButton">Request new password</string>
+    <string name="resetPassword_pleaseFillEmail">Please enter account e-mail</string>
+    <string name="resetPassword_successful">New password link sent to\u0020</string>
+    <string name="resetPassword_fail">Wrong or inexistent e-mail address. Please try again.</string>
 </resources>

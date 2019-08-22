@@ -15,6 +15,15 @@
     <string name="settingsMenu_powerSaving">Consum redus de baterie</string>
     <string name="settingsMenu_regionalSettings">Regional</string>
     <string name="settingsMenu_speedUnit">Unitate de măsură pentru viteză</string>
+    <string name="settingsMenu_accountSettings">Cont</string>
+    <string name="settingsMenu_signOut">Deconectare</string>
+    <string name="settingsMenu_signOutDescription">Autentificat ca\u0020</string>
+    <string name="settingsMenu_signOutConfirmationTitle">Deconectare</string>
+    <string name="settingsMenu_signOutConfirmationDescription">Sigur doriți să vă deconectați?</string>
+    <string name="settingsMenu_deleteAccount">Ștergere cont</string>
+    <string name="settingsMenu_deleteAccountDescription">Ștergeți permanent acest cont</string>
+    <string name="settingsMenu_deleteAccountConfirmationTitle">Ștergere cont</string>
+    <string name="settingsMenu_deleteAccountConfirmationDescription">Sigur doriți să ștergeți definitiv acest cont? Ștergerea contului este ireversibilă!</string>
     <string name="driving_turnOnGps">Activați accesul la locație. Apăsați tasta înapoi pentru anulare.</string>
     <string name="calibrationInstructions_firstStep">Atașați dispozitivul într-o poziție fixă</string>
     <string name="calibrationInstructions_secondStep">Asigurați-vă că vehiculul nu se mișcă</string>
@@ -117,4 +126,18 @@
     <string name="aboutMenu_version">Versiune:</string>
     <string name="aboutMenu_credits">Mulțumiri site-urilor freeiconspng.com, icons8.com și clipartsuggest.com pentru iconițele folosite în aplicația Rate My Driving.</string>
     <string name="drivingActivity_powerSaveOn">Consum redus de baterie activat</string>
+    <string name="loginActivity_emailText">E-mail</string>
+    <string name="loginActivity_passwordText">Parolă</string>
+    <string name="loginActivity_loginButton">Conectați-vă</string>
+    <string name="loginActivity_registerButton">Creați cont nou</string>
+    <string name="login_forgotPassword">Ați uitat parola? Apăsați aici!</string>
+    <string name="login_or">sau</string>
+    <string name="loginActivity_pleaseFillInFields">E-mail sau parolă lipsă</string>
+    <string name="loginActivity_passowrdLength">Parola trebuie să aibă minimum 6 caractere</string>
+    <string name="loginActivity_wrongMailOrPass">E-mail sau parolă greșită</string>
+    <string name="loginActivity_googleAuthError">Eroare de autentificare</string>
+    <string name="resetPassword_requestNewPassButton">Obțineți o parolă nouă</string>
+    <string name="resetPassword_pleaseFillEmail">E-mail lipsă</string>
+    <string name="resetPassword_successful">Link pentru parolă nouă trimis la\u0020</string>
+    <string name="resetPassword_fail">E-mail greșit sau inexistent. Încercați din nou.</string>
 </resources>

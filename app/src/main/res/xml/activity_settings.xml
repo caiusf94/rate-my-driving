@@ -57,15 +57,15 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="Account settings">
+        android:title="@string/settingsMenu_accountSettings">
 
-        <Preference android:title="Sign out"
+        <Preference android:title="@string/settingsMenu_signOut"
             android:key="signOutSelection"
-            android:summary="Currently signed in as "/>
+            android:summary="@string/settingsMenu_signOutDescription"/>
 
-        <Preference android:title="Delete account"
+        <Preference android:title="@string/settingsMenu_deleteAccount"
             android:key="deleteAccountSelection"
-            android:summary="Permanently delete account"/>
+            android:summary="@string/settingsMenu_deleteAccountDescription"/>
 
     </PreferenceCategory>
 

@@ -86,6 +86,10 @@
     <string name="drivingActivity_ACCELERATION">ACCELERATION</string>
     <string name="drivingActivity_BRAKING">BRAKE</string>
     <string name="drivingActivity_keepDriving">KEEP DRIVING</string>
+    <string name="drivingActivity_drivingBetterThan">You\'re driving better than\u0020</string>
+    <string name="drivingActivity_percentOfUsersOnRoad">% of all users on this road</string>
+    <string name="drivingActivity_firstUserOnRoad">You\'re the first user driving on this road</string>
+    <string name="drivingActivity_noInternetConnection">No internet connection</string>
     <string name="journeyDetails_globalScore">Journey score:</string>
     <string name="historyItem_score">Score:</string>
     <string name="journeyDetails_viewInsightsButton">View Insights</string>

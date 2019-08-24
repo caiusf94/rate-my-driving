@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/drivingExtraDisplay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/transparentGray"
-        android:orientation="vertical"
-        android:id="@+id/drivingExtraDisplay">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -15,113 +16,109 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
                 android:id="@+id/drivingExtraDisplayTime"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="@string/drivingActivity_time"
                 android:layout_alignParentStart="true"
-                android:textColor="@color/black"
                 android:gravity="center_vertical"
-                android:textSize="18sp"
-                />
+                android:text="@string/drivingActivity_time"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
             <TextClock
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
                 android:id="@+id/drivingExtraDisplayTimeValue"
-                android:text=""
-                android:textColor="@color/red"
-                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
                 android:format24Hour="HH:mm:ss     EEE, dd.MM.yyyy"
-                android:textSize="18sp"
-                android:layout_marginLeft="@dimen/activity_vertical_margin" />
+                android:gravity="center_vertical"
+                android:text=""
+                android:textColor="@color/red"
+                android:textSize="18sp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="@dimen/activity_horizontal_margin">
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
                 android:id="@+id/drivingExtraDisplayCurrentSpeed"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:gravity="center_vertical"
                 android:text="@string/drivingActivity_currSpeed"
-                android:layout_alignParentStart="true"
                 android:textColor="@color/black"
-                android:gravity="center_vertical"
-                android:textSize="18sp"
-                />
+                android:textSize="18sp" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
                 android:id="@+id/drivingExtraDisplayCurrentSpeedValue"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:gravity="center_vertical"
                 android:text=""
                 android:textColor="@color/red"
-                android:gravity="center_vertical"
-                android:textSize="18sp"
-                android:layout_marginLeft="@dimen/activity_vertical_margin" />
+                android:textSize="18sp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="@dimen/activity_horizontal_margin">
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
                 android:id="@+id/drivingExtraDisplayMaxSpeedAllowed"
-                android:layout_height="match_parent"
-                android:text="@string/drivingActivity_maxSpeed"
-                android:layout_alignParentStart="true"
-                android:textColor="@color/black"
-                android:gravity="center_vertical"
-                android:textSize="18sp"
-                />
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:gravity="center_vertical"
+                android:text="@string/drivingActivity_maxSpeed"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
                 android:id="@+id/drivingExtraDisplayMaxSpeedAllowedValue"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:gravity="center_vertical"
                 android:text=""
                 android:textColor="@color/red"
-                android:gravity="center_vertical"
-                android:textSize="18sp"
-                android:layout_marginLeft="@dimen/activity_vertical_margin" />
+                android:textSize="18sp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="@dimen/activity_horizontal_margin">
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
                 android:id="@+id/drivingExtraDisplayLocation"
-                android:layout_height="match_parent"
-                android:text="@string/drivingActivity_location"
-                android:layout_alignParentStart="true"
-                android:textColor="@color/black"
-                android:gravity="center_vertical"
-                android:textSize="18sp"
-                />
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:gravity="center_vertical"
+                android:text="@string/drivingActivity_location"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
                 android:id="@+id/drivingExtraDisplayLocationValue"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:gravity="center_vertical"
                 android:text=""
                 android:textColor="@color/red"
-                android:gravity="center_vertical"
-                android:textSize="18sp"
-                android:layout_marginLeft="@dimen/activity_vertical_margin" />
+                android:textSize="18sp" />
 
         </LinearLayout>
 
@@ -134,59 +131,57 @@
         android:layout_below="@id/drivingExtraDisplay">
 
         <TextView
-            android:text="@string/drivingActivity_keepDriving"
+            android:id="@+id/drivingEventToDisplay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="76dp"
-            android:id="@+id/drivingEventToDisplay"
             android:gravity="center"
+            android:text="@string/drivingActivity_keepDriving"
             android:textAlignment="center"
-            android:textSize="40sp"
-            />
+            android:textSize="40sp" />
 
         <TextView
-            android:text=""
+            android:id="@+id/drivingRatingToDisplay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/drivingEventToDisplay"
             android:gravity="center"
+            android:text=""
             android:textAlignment="center"
-            android:id="@+id/drivingRatingToDisplay"
             android:textSize="40sp"
             android:textStyle="normal|bold" />
-
 
 
         <LinearLayout
             android:id="@+id/drivingGlobalScoreLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@color/goodColor"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true">
+            android:layout_centerHorizontal="true"
+            android:background="@color/goodColor"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/drivingActivity_currentScore"
                 android:layout_gravity="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-                android:textAlignment="center" />
+                android:text="@string/drivingActivity_currentScore"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
 
             <TextView
+                android:id="@+id/drivingGlobalScoreToDisplay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="---"
-                android:textColor="@color/black"
+                android:layout_gravity="center_horizontal"
                 android:shadowColor="#FFFFFF"
                 android:shadowDx="2.5"
                 android:shadowDy="2.3"
                 android:shadowRadius="2.6"
-                android:id="@+id/drivingGlobalScoreToDisplay"
-                android:layout_gravity="center_horizontal"
+                android:text="---"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-                android:textAlignment="center" />
+                android:textColor="@color/black" />
 
         </LinearLayout>
 
@@ -194,84 +189,167 @@
             android:id="@+id/drivingExtraDisplayAverageRatingPanel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_above="@id/drivingOverspeeding"
+            android:layout_above="@id/drivingExtraDisplayDrivingBetterThanPanel"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:gravity="center"
+            android:orientation="horizontal"
             android:textAlignment="center"
-            android:layout_marginTop="@dimen/activity_horizontal_margin">
+            android:visibility="invisible">
 
             <TextView
-                android:layout_width="wrap_content"
                 android:id="@+id/drivingExtraDisplayAverageRating"
-                android:layout_height="match_parent"
-                android:text="@string/drivingActivity_averageRating"
-                android:layout_alignParentStart="true"
-                android:textColor="@color/black"
-                android:gravity="center_vertical"
-                android:textSize="18sp"
-                />
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/drivingActivity_averageRating"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
                 android:id="@+id/drivingExtraDisplayAverageRatingValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:gravity="center_vertical"
                 android:text=""
                 android:textColor="@color/red"
-                android:gravity="center_vertical"
-                android:textSize="18sp"
-                android:layout_marginLeft="@dimen/activity_vertical_margin" />
+                android:textSize="32sp" />
 
             <TextView
+                android:id="@+id/drivingExtraDisplayAverageRatingExtra1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/drivingExtraDisplayAverageRatingExtra1"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:gravity="center_vertical"
                 android:text="@string/drivingActivity_averageRating_outOf"
                 android:textColor="@color/black"
-                android:gravity="center_vertical"
-                android:textSize="18sp"
-                android:layout_marginLeft="@dimen/activity_vertical_margin" />
+                android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/drivingExtraDisplayAverageRatingExtra2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/drivingExtraDisplayAverageRatingExtra2"
+                android:layout_marginLeft="@dimen/activity_vertical_margin_smaller"
+                android:gravity="center_vertical"
                 android:text="-"
                 android:textColor="@color/black"
-                android:textSize="18sp"
-                android:layout_marginLeft="@dimen/activity_vertical_margin_smaller"/>
+                android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/drivingExtraDisplayAverageRatingExtra3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/drivingExtraDisplayAverageRatingExtra3"
+                android:layout_marginLeft="@dimen/activity_vertical_margin_smaller"
+                android:gravity="center_vertical"
                 android:text="@string/drivingActivity_averageRating_ratings"
                 android:textColor="@color/black"
-                android:gravity="center_vertical"
-                android:textSize="18sp"
-                android:layout_marginLeft="@dimen/activity_vertical_margin_smaller"/>
+                android:textSize="18sp" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/drivingExtraDisplayAverageRatingPanelNoInternet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/drivingExtraDisplayDrivingBetterThanPanel"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:textAlignment="center"
+            android:visibility="invisible">
+
+        <TextView
+            android:id="@+id/drivingExtraDisplayAverageRatingNoInternetText"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:gravity="center_vertical"
+            android:text="@string/drivingActivity_noInternetConnection"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/drivingExtraDisplayDrivingBetterThanPanel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/drivingOverspeeding"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:textAlignment="center"
+            android:visibility="invisible">
+
+            <TextView
+                android:id="@+id/drivingExtraDisplayDrivingBetterThanText1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:gravity="center_vertical"
+                android:text="@string/drivingActivity_drivingBetterThan"
+                android:textColor="@color/gray"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/drivingExtraDisplayDrivingBetterThanValue"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:gravity="center_vertical"
+                android:text=""
+                android:textColor="@color/gray"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/drivingExtraDisplayDrivingBetterThanText2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/drivingActivity_percentOfUsersOnRoad"
+                android:textColor="@color/gray"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/drivingExtraDisplayDrivingBetterThanPanelFirstUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/drivingOverspeeding"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="invisible"
+            android:textAlignment="center">
+
+            <TextView
+                android:id="@+id/firstOneOnThisRoad"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:gravity="center_vertical"
+                android:text="@string/drivingActivity_firstUserOnRoad"
+                android:textColor="@color/gray"
+                android:textSize="18sp" />
         </LinearLayout>
 
 
         <TextView
-            android:text="@string/drivingActivity_slowDown"
+            android:id="@+id/drivingOverspeeding"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/drivingOverspeeding"
             android:layout_above="@id/drivingGlobalScoreLayout"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-            android:fontFamily="sans-serif-condensed"
-            android:textAlignment="center"
-            android:textStyle="normal|bold"
-            android:textColor="@color/black"
             android:background="@color/mediumColor"
-            android:visibility="invisible"/>
-
-
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/drivingActivity_slowDown"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textColor="@color/black"
+            android:textStyle="normal|bold"
+            android:visibility="invisible" />
 
 
     </RelativeLayout>
-
 
 
 </RelativeLayout>

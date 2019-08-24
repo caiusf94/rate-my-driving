@@ -79,12 +79,14 @@
     <string name="drivingActivity_averageRating_outOf">(din </string>
     <string name="drivingActivity_averageRating_ratings"> recenzii)</string>
     <string name="drivingActivity_slowDown">Reduceți viteza!</string>
-
     <string name="drivingActivity_ratingBad">RĂU</string>
     <string name="drivingActivity_ratingGood">BUN</string>
     <string name="drivingActivity_ratingMedium">MEDIU</string>
-
+    <string name="drivingActivity_drivingBetterThan">Conduceți mai bine decât\u0020</string>
+    <string name="drivingActivity_percentOfUsersOnRoad">% dintre toți utilizatorii pe acest drum</string>
     <string name="drivingActivity_keepDriving">CONDUCEȚI</string>
+    <string name="drivingActivity_firstUserOnRoad">Sunteți primul utilizator care conduce pe acest drum</string>
+    <string name="drivingActivity_noInternetConnection">Fără conexiune internet</string>
     <string name="journeyDetails_globalScore">Scor general:</string>
     <string name="historyItem_score">Scor:</string>
     <string name="journeyDetails_viewInsightsButton">Vizualizare statistici</string>

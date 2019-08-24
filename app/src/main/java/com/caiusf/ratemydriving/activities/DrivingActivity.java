@@ -6,15 +6,11 @@ import android.location.Location;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextClock;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
 
 import com.caiusf.ratemydriving.R;
 import com.caiusf.ratemydriving.controllers.DrivingActivityController;
@@ -29,14 +25,9 @@ import com.caiusf.ratemydriving.data.SettingsDO;
 import com.caiusf.ratemydriving.data.driving.events.types.DrivingEventType;
 import com.caiusf.ratemydriving.data.driving.events.types.ScoreType;
 import com.caiusf.ratemydriving.utils.converter.SpeedConverter;
+import com.caiusf.ratemydriving.utils.firebase.FirebaseESI;
 import com.caiusf.ratemydriving.utils.location.GpsCoordinatesConverter;
-import com.caiusf.ratemydriving.utils.timestamp.TimestampGenerator;
 import com.caiusf.ratemydriving.utils.toast.ToastDisplayer;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 
 /**
@@ -118,15 +109,25 @@ public class DrivingActivity extends Activity implements DrivingEventDetectionLi
      */
     private long latestUpdate;
 
-    private static String CURRENT_LOCATION;
+    private FirebaseESI firebaseESI;
 
-    private DatabaseReference databaseReference;
+    private static String CURRENT_LOCATION;
 
     private TextView averageRoadRatingText;
 
     private TextView nbOfRoadRatingsText;
 
     private LinearLayout averageRoadRatingPanel;
+
+    private TextView drivingBetterThanPercentage;
+
+    private LinearLayout drivingBetterThanPanel;
+
+    private LinearLayout drivingBetterThanPanelFirstUser;
+
+    private TextView firstOneOnThisRoadText;
+
+    private LinearLayout averageRoadRatingPanelNoInternet;
 
 
     /**
@@ -150,6 +151,7 @@ public class DrivingActivity extends Activity implements DrivingEventDetectionLi
      */
     private synchronized void initDrivingActivity() {
 
+        firebaseESI = new FirebaseESI();
 
         isFirstDisplay = false;
 
@@ -163,7 +165,16 @@ public class DrivingActivity extends Activity implements DrivingEventDetectionLi
         eventDisplayed = (TextView) findViewById(R.id.drivingEventToDisplay);
         ratingDisplayed = (TextView) findViewById(R.id.drivingRatingToDisplay);
 
+        averageRoadRatingPanelNoInternet = (LinearLayout) findViewById(R.id.drivingExtraDisplayAverageRatingPanelNoInternet);
+
+        drivingBetterThanPercentage = (TextView) findViewById(R.id.drivingExtraDisplayDrivingBetterThanValue);
+
         drivingExtraDisplay = (LinearLayout) findViewById(R.id.drivingExtraDisplay);
+
+        drivingBetterThanPanel = (LinearLayout) findViewById(R.id.drivingExtraDisplayDrivingBetterThanPanel);
+        drivingBetterThanPanelFirstUser = (LinearLayout) findViewById(R.id.drivingExtraDisplayDrivingBetterThanPanelFirstUser);
+
+        firstOneOnThisRoadText = (TextView) findViewById(R.id.firstOneOnThisRoad);
 
         globalScoreDisplayed = (TextView) findViewById(R.id.drivingGlobalScoreToDisplay);
         overspeedingMessage = (TextView) findViewById(R.id.drivingOverspeeding);
@@ -203,8 +214,6 @@ public class DrivingActivity extends Activity implements DrivingEventDetectionLi
         if (SettingsDO.isPowerSaving()) {
             ToastDisplayer.displayLongToast(getBaseContext(), getResources().getString(R.string.drivingActivity_powerSaveOn));
         }
-
-        databaseReference = FirebaseDatabase.getInstance().getReference();
 
     }
 
@@ -319,12 +328,12 @@ public class DrivingActivity extends Activity implements DrivingEventDetectionLi
                 break;
         }
 
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    addToDatabaseRoadRatings(scoreType);
-                }
-            });
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                updateAverageRoadRatingPanel(scoreType);
+            }
+        });
 
 
     }
@@ -431,47 +440,33 @@ public class DrivingActivity extends Activity implements DrivingEventDetectionLi
 
     }
 
-    private void addToDatabaseRoadRatings(final ScoreType scoreType) {
+    private void updateAverageRoadRatingPanel(final ScoreType scoreType) {
 
         if (isCurrentLocationValid() && isNetworkAvailable()) {
-            databaseReference.child("ratings").child(CURRENT_LOCATION).child("values").child(TimestampGenerator.getTimestamp()).setValue(ScoreType.getPointsFromScoreType(scoreType));
+
+            firebaseESI.storeRatingForLocationToFirebase(CURRENT_LOCATION, scoreType);
+
+            averageRoadRatingPanelNoInternet.setVisibility(View.INVISIBLE);
             averageRoadRatingPanel.setVisibility(View.VISIBLE);
-            fetchFromDatabaseRoadRatings();
+            averageRoadRatingText.setText(String.format("%.2f", firebaseESI.getCurrentRoadAverage()));
+            nbOfRoadRatingsText.setText(String.valueOf(firebaseESI.getCurrentRoadNumberOfReviews()));
+
+            if (firebaseESI.calculateDrivingBetterThanPercentage() == -1) {
+                drivingBetterThanPanel.setVisibility(View.INVISIBLE);
+                drivingBetterThanPanelFirstUser.setVisibility(View.VISIBLE);
+                firstOneOnThisRoadText.setText(getResources().getString(R.string.drivingActivity_firstUserOnRoad));
+            } else {
+                drivingBetterThanPanelFirstUser.setVisibility(View.INVISIBLE);
+                drivingBetterThanPanel.setVisibility(View.VISIBLE);
+                drivingBetterThanPercentage.setText(String.format("%.0f", firebaseESI.calculateDrivingBetterThanPercentage()));
+            }
+
         } else {
             averageRoadRatingPanel.setVisibility(View.INVISIBLE);
+            drivingBetterThanPanel.setVisibility(View.INVISIBLE);
+            drivingBetterThanPanelFirstUser.setVisibility(View.INVISIBLE);
+            averageRoadRatingPanelNoInternet.setVisibility(View.VISIBLE);
         }
-    }
-
-    private void fetchFromDatabaseRoadRatings() {
-
-
-        final DatabaseReference ratingsRef = databaseReference.child("ratings").child(CURRENT_LOCATION).child("values");
-        final DatabaseReference averageRef = databaseReference.child("ratings").child(CURRENT_LOCATION).child("average");
-
-        ratingsRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                double sum = 0;
-
-                for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    sum += Double.parseDouble(ds.getValue().toString());
-                }
-
-                double average = sum / dataSnapshot.getChildrenCount();
-                averageRef.setValue(average);
-                averageRoadRatingText.setText(String.format("%.2f", average));
-                nbOfRoadRatingsText.setText(String.valueOf(dataSnapshot.getChildrenCount()));
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-
     }
 
     private boolean isCurrentLocationValid() {

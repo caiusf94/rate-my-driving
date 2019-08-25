@@ -198,8 +198,7 @@ public class DrivingEventDetector extends Thread implements AccelerometerValuesL
     /**
      * Called when the location controller is notifying its observers
      *
-     * @param location
-     *          the location object
+     * @param location the location object
      */
     @Override
     public synchronized void onLocationChange(Location location) {
@@ -347,33 +346,32 @@ public class DrivingEventDetector extends Thread implements AccelerometerValuesL
     /**
      * Detect overspeeding
      *
-     * @param location
-     *              the location object
+     * @param location the location object
      */
     private synchronized void detectOverspeed(Location location) {
         overspeedDetectionInProgress = true;
-            if (!overspeedOngoing) {
-                /**
-                 * Detect overspeeding only of maximum speed allowed is available and
-                 * if current speed is greater than maximum speed allowed, driver is overspeeding
-                 */
-                if (maxSpeedAllowedIsAvailable && location.getSpeed() > maxSpeedAllowedInMps) {
-                    for (DrivingEventDetectionListener listener : container) {      //notify observers
-                        listener.onDrivingEventDetected(DrivingEventType.OVERSPEED);
-                    }
-                    overspeedOngoing = true;
+        if (!overspeedOngoing) {
+            /**
+             * Detect overspeeding only of maximum speed allowed is available and
+             * if current speed is greater than maximum speed allowed, driver is overspeeding
+             */
+            if (maxSpeedAllowedIsAvailable && location.getSpeed() > maxSpeedAllowedInMps) {
+                for (DrivingEventDetectionListener listener : container) {      //notify observers
+                    listener.onDrivingEventDetected(DrivingEventType.OVERSPEED);
                 }
-            } else {
-                /**
-                 * If current speed is below maximum speed allowed, overspeeding has ended
-                 */
-                if (!maxSpeedAllowedIsAvailable || location.getSpeed() < maxSpeedAllowedInMps) {
-                    for (DrivingEventDetectionListener listener : container) {      //notify observers
-                        listener.onDrivingEventFinished(DrivingEventType.OVERSPEED);
-                    }
-                    overspeedOngoing = false;
-                }
+                overspeedOngoing = true;
             }
+        } else {
+            /**
+             * If current speed is below maximum speed allowed, overspeeding has ended
+             */
+            if (!maxSpeedAllowedIsAvailable || location.getSpeed() < maxSpeedAllowedInMps) {
+                for (DrivingEventDetectionListener listener : container) {      //notify observers
+                    listener.onDrivingEventFinished(DrivingEventType.OVERSPEED);
+                }
+                overspeedOngoing = false;
+            }
+        }
 
         overspeedDetectionInProgress = false;
     }
@@ -381,19 +379,18 @@ public class DrivingEventDetector extends Thread implements AccelerometerValuesL
     /**
      * Add a new <b>DrivingEventDetectionListener</b> to the container
      *
-     * @param listener
-     *              the DrivingEventDetectionListener to be added
+     * @param listener the DrivingEventDetectionListener to be added
      */
     public static void addListenerToContainer(DrivingEventDetectionListener listener) {
         if (!container.contains(listener)) {
             container.add(listener);
         }
     }
+
     /**
      * Remove an <b>DrivingEventDetectionListener</b> from the container
      *
-     * @param listener
-     *              the DrivingEventDetectionListener to be removed
+     * @param listener the DrivingEventDetectionListener to be removed
      */
     public static void removeListenerFromContainer(DrivingEventDetectionListener listener) {
         container.remove(listener);
@@ -411,16 +408,14 @@ public class DrivingEventDetector extends Thread implements AccelerometerValuesL
     /**
      * Retrieves and updates the maximum speed allowed if available
      *
-     * @param location
-     *              the location object
-     *
+     * @param location the location object
      * @see GpsCoordinatesConverter
-     *
      * @see SpeedConverter
      */
     private void updateMaxSpeedAllowed(final Location location) {
 
         DrivingEventDetector.maxSpeedAllowed = GpsCoordinatesConverter.getMaxSpeedAllowedFromGps(location.getLatitude(), location.getLongitude());
+
 
         if (maxSpeedAllowed != null) {
             new Thread(new Runnable() {
@@ -431,7 +426,12 @@ public class DrivingEventDetector extends Thread implements AccelerometerValuesL
                         maxSpeedAllowedInMps = SpeedConverter.toMetersPerSecond(maxSpeedAllowedInMps);
                         maxSpeedAllowedIsAvailable = true;
                     } catch (NumberFormatException ex) {
-                        maxSpeedAllowedIsAvailable = false;
+                        if (maxSpeedAllowed.toLowerCase().contains("urban")) {
+                            maxSpeedAllowedInMps = SpeedConverter.toMetersPerSecond(50.0f); //Assume maxSpeedAllowed to be 50 km/h in urban
+                            maxSpeedAllowedIsAvailable = true;
+                        } else {
+                            maxSpeedAllowedIsAvailable = false;
+                        }
                     }
                 }
 
@@ -443,7 +443,7 @@ public class DrivingEventDetector extends Thread implements AccelerometerValuesL
     /**
      * Get maximum speed allowed
      *
-     * @return  the maximum speed allowed as retrieved from the server
+     * @return the maximum speed allowed as retrieved from the server
      */
     public static String getMaxSpeedAllowed() {
         return maxSpeedAllowed;

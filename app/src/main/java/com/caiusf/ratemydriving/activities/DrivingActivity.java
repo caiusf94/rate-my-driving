@@ -444,7 +444,8 @@ public class DrivingActivity extends Activity implements DrivingEventDetectionLi
 
         if (isCurrentLocationValid() && isNetworkAvailable()) {
 
-            firebaseESI.storeRatingForLocationToFirebase(CURRENT_LOCATION, scoreType);
+
+            firebaseESI.storeRatingForLocationToFirebase(CURRENT_LOCATION.replaceAll("\\.", ""), scoreType);
 
             averageRoadRatingPanelNoInternet.setVisibility(View.INVISIBLE);
             averageRoadRatingPanel.setVisibility(View.VISIBLE);

@@ -20,13 +20,9 @@ public class GpsCoordinatesConverter {
     /**
      * Get street name
      *
-     * @param lat
-     *          the latitude
-     *
-     * @param lng
-     *          the longitude
-     *
-     * @return  name of a street
+     * @param lat the latitude
+     * @param lng the longitude
+     * @return name of a street
      */
     public static String getStreetFromGps(double lat, double lng) {
         try {
@@ -41,13 +37,9 @@ public class GpsCoordinatesConverter {
     /**
      * Get city/district name
      *
-     * @param lat
-     *          the latitude
-     *
-     * @param lng
-     *          the longitude
-     *
-     * @return  name of a city/district
+     * @param lat the latitude
+     * @param lng the longitude
+     * @return name of a city/district
      */
     public static String getCityFromGps(double lat, double lng) {
         try {
@@ -73,20 +65,16 @@ public class GpsCoordinatesConverter {
     /**
      * Get country ISO code
      *
-     * @param lat
-     *          the latitude
-     *
-     * @param lng
-     *          the longitude
-     *
-     * @return  ISO code of a country
+     * @param lat the latitude
+     * @param lng the longitude
+     * @return ISO code of a country
      */
-    public static String getCountryCodeFromGps(double lat, double lng){
-        try{
+    public static String getCountryCodeFromGps(double lat, double lng) {
+        try {
             JSONObject json = new JSONObject(new ProcessJSON().execute("http://api.geonames.org/findNearbyStreetsOSMJSON?lat=" + lat + "&lng=" + lng + "&username=ratemydriving").get());
             JSONArray countryCode = json.getJSONArray("streetSegment");
             return countryCode.getJSONObject(0).getString("countryCode");
-        }catch (Exception e){
+        } catch (Exception e) {
             return null;
         }
     }
@@ -95,17 +83,12 @@ public class GpsCoordinatesConverter {
     /**
      * Get full address of a location
      *
-     * @param lat
-     *          the latitude
-     * @param lng
-     *          the longitude
-     *
-     * @param context
-     *           the context
-     *
-     * @return  full address of a location (street name, city or district name, country ISO code)
+     * @param lat     the latitude
+     * @param lng     the longitude
+     * @param context the context
+     * @return full address of a location (street name, city or district name, country ISO code)
      */
-    public static String getFullAddress(double lat, double lng, Context context){
+    public static String getFullAddress(double lat, double lng, Context context) {
         StringBuilder sb = new StringBuilder();
 
         String street = getStreetFromGps(lat, lng);
@@ -113,31 +96,27 @@ public class GpsCoordinatesConverter {
         String countryCode = getCountryCodeFromGps(lat, lng);
 
 
-        if(street != null)
+        if (street != null)
             sb.append(street);
-            sb.append(", ");
+        sb.append(", ");
 
-        if(city != null){
+        if (city != null) {
             sb.append(city);
             sb.append(", ");
         }
 
-        if(countryCode != null){
+        if (countryCode != null) {
             sb.append(countryCode);
         }
 
-        if(street == null && city == null && countryCode == null){
+        if (street == null && city == null && countryCode == null) {
             return context.getResources().getString(R.string.unavailable);
-        }
-        else{
+        } else {
             return sb.toString();
         }
 
 
     }
-
-
-
 
 
 }

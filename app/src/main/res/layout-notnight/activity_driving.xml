@@ -31,6 +31,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="@dimen/activity_vertical_margin"
                 android:format24Hour="HH:mm:ss     EEE, dd.MM.yyyy"
+                android:format12Hour="h:mm:ss a     EEE, dd.MM.yyyy"
                 android:gravity="center_vertical"
                 android:text=""
                 android:textColor="@color/red"

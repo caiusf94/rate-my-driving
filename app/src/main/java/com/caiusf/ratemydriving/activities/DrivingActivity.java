@@ -129,6 +129,8 @@ public class DrivingActivity extends Activity implements DrivingEventDetectionLi
 
     private LinearLayout averageRoadRatingPanelNoInternet;
 
+    private TextView averageRoadRatingPanelNoInternetText;
+
 
     /**
      * Set up the layout for this activity and initialize the activity
@@ -166,6 +168,7 @@ public class DrivingActivity extends Activity implements DrivingEventDetectionLi
         ratingDisplayed = (TextView) findViewById(R.id.drivingRatingToDisplay);
 
         averageRoadRatingPanelNoInternet = (LinearLayout) findViewById(R.id.drivingExtraDisplayAverageRatingPanelNoInternet);
+        averageRoadRatingPanelNoInternetText = (TextView) findViewById(R.id.drivingExtraDisplayAverageRatingNoInternetText);
 
         drivingBetterThanPercentage = (TextView) findViewById(R.id.drivingExtraDisplayDrivingBetterThanValue);
 
@@ -466,7 +469,13 @@ public class DrivingActivity extends Activity implements DrivingEventDetectionLi
             averageRoadRatingPanel.setVisibility(View.INVISIBLE);
             drivingBetterThanPanel.setVisibility(View.INVISIBLE);
             drivingBetterThanPanelFirstUser.setVisibility(View.INVISIBLE);
-            averageRoadRatingPanelNoInternet.setVisibility(View.VISIBLE);
+            if (!isNetworkAvailable()) {
+                averageRoadRatingPanelNoInternet.setVisibility(View.VISIBLE);
+                averageRoadRatingPanelNoInternetText.setText(getResources().getString(R.string.drivingActivity_noInternetConnection));
+            } else if (!isCurrentLocationValid()) {
+                averageRoadRatingPanelNoInternet.setVisibility(View.VISIBLE);
+                averageRoadRatingPanelNoInternetText.setText(getResources().getString(R.string.drivingActivity_noLocationAvailable));
+            }
         }
     }
 

@@ -87,6 +87,7 @@
     <string name="drivingActivity_keepDriving">CONDUCEȚI</string>
     <string name="drivingActivity_firstUserOnRoad">Sunteți primul utilizator care conduce pe acest drum</string>
     <string name="drivingActivity_noInternetConnection">Fără conexiune internet</string>
+    <string name="drivingActivity_noLocationAvailable">Locație indisponibilă</string>
     <string name="journeyDetails_globalScore">Scor general:</string>
     <string name="historyItem_score">Scor:</string>
     <string name="journeyDetails_viewInsightsButton">Vizualizare statistici</string>

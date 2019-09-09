@@ -109,6 +109,10 @@ public class GpsCoordinatesConverter {
             sb.append(countryCode);
         }
 
+        System.out.println("lat leng: " + lat + " " + lng);
+
+        System.out.println("address " + street + city + countryCode);
+
         if (street == null && city == null && countryCode == null) {
             return context.getResources().getString(R.string.unavailable);
         } else {

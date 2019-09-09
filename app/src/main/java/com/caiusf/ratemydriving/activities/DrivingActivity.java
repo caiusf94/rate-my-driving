@@ -45,7 +45,7 @@ public class DrivingActivity extends Activity implements DrivingEventDetectionLi
      * The rate at which the extra information panel is refreshed
      * 10 seconds if power saving mode is enabled, 3 seconds otherwise
      */
-    private final int REFRESH_RATE = (SettingsDO.isPowerSaving()) ? 10000 : 3000;
+    private final int REFRESH_RATE = (SettingsDO.isPowerSaving()) ? 10000 : 5000;
     /**
      * The threshold between a good and a medium global score
      */
@@ -480,6 +480,8 @@ public class DrivingActivity extends Activity implements DrivingEventDetectionLi
     }
 
     private boolean isCurrentLocationValid() {
+
+        System.out.println("Ccccc " + CURRENT_LOCATION);
 
         if (CURRENT_LOCATION != null &&
                 !CURRENT_LOCATION.isEmpty() && !CURRENT_LOCATION.equals(this.getResources().getString(R.string.unavailable))) {

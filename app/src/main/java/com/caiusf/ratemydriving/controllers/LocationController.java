@@ -77,8 +77,6 @@ public class LocationController implements LocationListener, GpsStatus.Listener 
 
         if (location != null && (location.getLongitude() != 0.0 && location.getLatitude() != 0.0)) {
 
-
-
             for (LocationChangeListener listener : container)
                 listener.onLocationChange(location);
         }

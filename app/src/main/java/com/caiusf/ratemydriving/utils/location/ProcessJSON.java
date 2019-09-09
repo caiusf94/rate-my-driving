@@ -25,6 +25,7 @@ public class ProcessJSON extends AsyncTask<String, Void, String> {
         String stream = null;
         String urlString = strings[0];
 
+
         stream = HTTPDataHandler.getHTTPData(urlString);
 
         // Return the data from specified url

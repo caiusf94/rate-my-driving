@@ -28,6 +28,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 
+/**
+ * Adapted from: https://medium.com/mobiletech/firebase-authentication-sample-371b5940ba93
+ */
 public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
     EditText loginEmail, loginPassword;
     Button loginButton, registerButton, newPassButton;

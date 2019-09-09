@@ -37,10 +37,13 @@ public class HTTPDataHandler {
             URL url = new URL(urlString);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
+            System.out.println("URL STRING "  + urlString);
+
 
             // Check the connection status
             if(urlConnection.getResponseCode() == 200)
             {
+                System.out.println("200 in if!");
                 // if response code = 200 ok
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
 
@@ -50,6 +53,7 @@ public class HTTPDataHandler {
                 String line;
                 while ((line = r.readLine()) != null) {
                     sb.append(line);
+                    System.out.println("LINE " + line);
                 }
                 stream = sb.toString();
                 // End reading...............
@@ -59,7 +63,7 @@ public class HTTPDataHandler {
             }
             else
             {
-                // Do something
+                // Do somethingSystem.out.println("500 in else!");
             }
         }catch (MalformedURLException e){
         }catch(IOException e){
